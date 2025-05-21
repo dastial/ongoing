@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 # Copy the application JAR file into the container
 # Replace 'your-application.jar' with the actual name of your JAR file
-COPY ./target/Hello-World.jar  /app
+COPY Hello-World.jar  .
 
 # Expose the port your application runs on
 # Replace 8080 with the actual port if different
