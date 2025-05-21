@@ -8,7 +8,6 @@ WORKDIR /usr/src/app
 # Replace 'your-application.jar' with the actual name of your JAR file
 COPY Hello-World.jar  .
 
-# Expose the port your application runs on
 # Replace 8080 with the actual port if different
 EXPOSE 8080
 
