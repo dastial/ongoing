@@ -35,4 +35,4 @@ phases:
 artifacts:
   files:
     - imagedefinitions.json
-    - target/Hello-World-0.0.1-SNAPSHOT.jar
+    - target/Hello-World.jar
