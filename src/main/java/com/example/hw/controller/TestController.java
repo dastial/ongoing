@@ -8,6 +8,6 @@ public class TestController{
 
     @GetMapping("/get")
     public String getMapping(){
-        return "Hello World From Publicis Sapient";
+        return "Hello World From Sapient";
     }
 }
