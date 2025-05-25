@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools{
-        maven "3.8.4"
-    }
-
     environment {
         EC2_USER = 'ec2-user'
         EC2_HOST = '54.89.235.237'
