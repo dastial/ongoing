@@ -9,15 +9,17 @@ pipeline {
     }
 
     stages {
-        stage('Clone Code') {
-            steps {
-                git url: 'https://github.com/dastial/ongoing.git', branch: 'master'
-            }
-        }
 
         stage('Build') {
             steps {
                 sh './mvnw clean package -DskipTests'
+            }
+        }
+
+        stage ('Build Docker Image'){
+            steps {
+                echo 'Building Docker Image'
+                sh 'docker build -t sapientdock/Hello-World:latest .'
             }
         }
 
@@ -27,8 +29,7 @@ pipeline {
                     sh """
                         scp target/${APP_NAME}.jar ${EC2_USER}@${EC2_HOST}:/home/${EC2_USER}/
                         ssh ${EC2_USER}@${EC2_HOST} '
-                            pkill -f ${APP_NAME}.jar || true
-                            nohup java -jar ${APP_NAME}.jar > app.log 2>&1 &
+                            docker run -d -p 8080:8080 sapientdock/Hello-World:latest
                         '
                     """
                 }
